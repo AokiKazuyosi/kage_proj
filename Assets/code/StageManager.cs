@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 public class StageManager : MonoBehaviour
 {
     public Correct_Angle angleChecker;
+    public Correct_Angle easy;
+    public Correct_Angle normal;
+    public Correct_Angle hard;
     public WASD playerController;
     public float clearDelay = 1.5f;
 
@@ -19,7 +22,7 @@ public class StageManager : MonoBehaviour
         if (cleared) return;
         if (angleChecker == null || playerController == null) return;
 
-        if (angleChecker != null && angleChecker.IsCleared())
+        if (angleChecker.isSnapped)
         {
             cleared = true;
             //ëÄçÏí‚é~
@@ -34,8 +37,8 @@ public class StageManager : MonoBehaviour
         switch(GameSettings.difficulty)
         {
             case 0: //Easy
-                angleChecker.targetX = 100f;
-                angleChecker.targetY = 100f;
+                angleChecker.targetX = 30f;
+                angleChecker.targetY = 30f;
                 break;
 
             case 1: //Normal

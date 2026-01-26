@@ -2,10 +2,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+
 public class Correct_Angle : MonoBehaviour
 {
     public float rotateSpeed = 10f;
-    public bool isCorrect = false;
+    public bool isNearCorrect = false; //95%
+    public bool isSnapped = false; //一致
 
     public StageManager stageManager;
 
@@ -41,12 +43,15 @@ public class Correct_Angle : MonoBehaviour
     {
         float percent = CalculateMatchPercent();
 
-        //スナップ処理
-        if (percent >= snapThreshold)
+        //95%
+        isNearCorrect = percent >= clearThreshold;
+
+        //97%以上でスナップ処理
+        if (percent >= snapThreshold && !isSnapped)
         {
             SnapToTaraget();
         }
-        else
+        else if (!isSnapped)
         {
             Rotate();
         }
@@ -79,37 +84,32 @@ public class Correct_Angle : MonoBehaviour
 
     void UpdateUI(float percent)
     {
-        if (matchSlider!=null)
+        if (matchSlider != null)
         {
-            matchSlider.value = percent;   
+            matchSlider.value = percent;
         }
 
-        if(fillImage != null)
+        if (fillImage != null)
         {
-            fillImage.color = (percent >= clearThreshold) ? clearColor : normalColor;
+            fillImage.color = isNearCorrect ? clearColor : normalColor;
         }
     }
 
     void SnapToTaraget()
     {
         currentX = Mathf.MoveTowardsAngle(
-        currentX, targetX, snapSpeed * Time.deltaTime);
+            currentX, targetX, snapSpeed * Time.deltaTime);
 
         currentY = Mathf.MoveTowardsAngle(
             currentY, targetY, snapSpeed * Time.deltaTime);
 
         transform.rotation = Quaternion.Euler(currentX, currentY, 0f);
 
+        //スナップ完了
         if (Mathf.Abs(Mathf.DeltaAngle(currentX, targetX)) < 0.1f &&
             Mathf.Abs(Mathf.DeltaAngle(currentY, targetY)) < 0.1f)
         {
-            isCorrect = true;
+            isSnapped = true;
         }
-    }
-
-    public bool IsCleared()
-    {
-        float percent = CalculateMatchPercent();
-        return percent >= clearThreshold;
     }
 }
