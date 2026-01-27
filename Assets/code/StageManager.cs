@@ -37,8 +37,8 @@ public class StageManager : MonoBehaviour
         switch(GameSettings.difficulty)
         {
             case 0: //Easy
-                angleChecker.targetX = 30f;
-                angleChecker.targetY = 30f;
+                //angleChecker.targetX = 30f;
+                //angleChecker.targetY = 30f;
                 break;
 
             case 1: //Normal
