@@ -4,52 +4,56 @@ using UnityEngine.SceneManagement;
 public class StageManager : MonoBehaviour
 {
     public Correct_Angle angleChecker;
-    public Correct_Angle easy;
-    public Correct_Angle normal;
-    public Correct_Angle hard;
-    public WASD playerController;
-    public float clearDelay = 1.5f;
 
+    [Header("Stages")]
+    public GameObject easy;
+    public GameObject normal;
+    public GameObject hard;
+
+    [Header("Player")]
+    public WASD playerController;
+
+    public float clearDelay = 1.5f;
     bool cleared = false;
+
+    Correct_Angle currentAngle;
 
     void Start()
     {
-        SetupByDifficulty();
+        easy.SetActive(false);
+        normal.SetActive(false);
+        hard.SetActive(false);
+
+        switch(GameSettings.difficulty)
+        {
+            case 0:
+                easy.SetActive(true);
+                currentAngle = easy.GetComponentInChildren<Correct_Angle>();
+                break;
+
+            case 1:
+                normal.SetActive(true);
+                currentAngle = normal.GetComponentInChildren<Correct_Angle>();
+                break;
+
+            case 2:
+                hard.SetActive(true);
+                currentAngle = hard.GetComponentInChildren<Correct_Angle>();
+                break;
+        }
     }
 
     void Update()
     {
         if (cleared) return;
-        if (angleChecker == null || playerController == null) return;
 
-        if (angleChecker.isSnapped)
+        if (currentAngle != null && currentAngle.isCorrect) 
         {
             cleared = true;
             //ëÄçÏí‚é~
             playerController.enabled = false;
             //É^ÉCÉgÉãÇ…ñﬂÇÈ
             Invoke(nameof(ReturnToTitle), clearDelay);
-        }
-    }
-
-    void SetupByDifficulty()
-    {
-        switch(GameSettings.difficulty)
-        {
-            case 0: //Easy
-                //angleChecker.targetX = 30f;
-                //angleChecker.targetY = 30f;
-                break;
-
-            case 1: //Normal
-                angleChecker.targetX = 60f;
-                angleChecker.targetY = 90f;
-                break;
-
-            case 2:
-                angleChecker.targetX = 120f;
-                angleChecker.targetY = 135f;
-                break;
         }
     }
 

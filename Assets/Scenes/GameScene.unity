@@ -217,28 +217,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 347583921}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea1edcbda3f8d8d4a95dcad9c2961190, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WASD
-  rotateSpeed: 45
---- !u!114 &347583924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 347583921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b5eb09915796a847ae45d0e1256e9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Correct_Angle
   rotateSpeed: 10
   isNearCorrect: 0
   isSnapped: 0
+  isCorrect: 0
   stageManager: {fileID: 0}
-  targetX: 0
-  targetY: 0
+  targetX: 30
+  targetY: 30
   maxAngleError: 90
   snapThreshold: 97
   snapSpeed: 7
@@ -530,52 +518,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &754375838
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 754375839}
-  - component: {fileID: 754375840}
-  m_Layer: 0
-  m_Name: TitleScene
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &754375839
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754375838}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.60541, y: 0, z: 1.63751}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1625411727}
-  - {fileID: 1529671918}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &754375840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754375838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa15ed45ffdb6ae4fa3e258fadb865dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TitleScene
 --- !u!1 &848714252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a532c254a0113f6479eadabed7d1dcc0, type: 3}
@@ -614,9 +556,10 @@ MonoBehaviour:
   rotateSpeed: 10
   isNearCorrect: 0
   isSnapped: 0
+  isCorrect: 0
   stageManager: {fileID: 0}
-  targetX: 30
-  targetY: 30
+  targetX: 90
+  targetY: 90
   maxAngleError: 90
   snapThreshold: 97
   snapSpeed: 7
@@ -867,9 +810,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3ebd7c8c6bb007848819daea94364040, type: 3}
       insertIndex: -1
       addedObject: {fileID: 347583923}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3ebd7c8c6bb007848819daea94364040, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 347583924}
   m_SourcePrefab: {fileID: 100100000, guid: 3ebd7c8c6bb007848819daea94364040, type: 3}
 --- !u!1 &1529671915
 GameObject:
@@ -948,7 +888,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 754375839}
+  m_Father: {fileID: 1862702824}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1625411723
 GameObject:
@@ -1045,7 +985,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1992094191}
-  m_Father: {fileID: 754375839}
+  m_Father: {fileID: 1862702824}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1240,9 +1180,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32ce351a077e3c441ad8033ff903d3ef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2133572595}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32ce351a077e3c441ad8033ff903d3ef, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2133572596}
   m_SourcePrefab: {fileID: 100100000, guid: 32ce351a077e3c441ad8033ff903d3ef, type: 3}
 --- !u!1 &1862702823
 GameObject:
@@ -1273,6 +1210,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1529671918}
+  - {fileID: 1625411727}
   - {fileID: 1993967723}
   - {fileID: 848714254}
   - {fileID: 347583922}
@@ -1450,9 +1389,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageManager
   angleChecker: {fileID: 848714255}
-  easy: {fileID: 0}
-  normal: {fileID: 0}
-  hard: {fileID: 0}
+  easy: {fileID: 347583921}
+  normal: {fileID: 2133572593}
+  hard: {fileID: 848714252}
   playerController: {fileID: 848714253}
   clearDelay: 1.5
 --- !u!1 &2133572593 stripped
@@ -1474,28 +1413,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2133572593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea1edcbda3f8d8d4a95dcad9c2961190, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WASD
-  rotateSpeed: 45
---- !u!114 &2133572596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2133572593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b5eb09915796a847ae45d0e1256e9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Correct_Angle
   rotateSpeed: 10
   isNearCorrect: 0
   isSnapped: 0
+  isCorrect: 0
   stageManager: {fileID: 0}
-  targetX: 0
-  targetY: 0
+  targetX: 60
+  targetY: 60
   maxAngleError: 90
   snapThreshold: 97
   snapSpeed: 7
@@ -1511,5 +1438,4 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1649163834}
-  - {fileID: 754375839}
   - {fileID: 1862702824}

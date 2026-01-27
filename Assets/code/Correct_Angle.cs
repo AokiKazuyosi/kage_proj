@@ -8,6 +8,7 @@ public class Correct_Angle : MonoBehaviour
     public float rotateSpeed = 10f;
     public bool isNearCorrect = false; //95%
     public bool isSnapped = false; //一致
+    public bool isCorrect = false;
 
     public StageManager stageManager;
 
@@ -41,17 +42,15 @@ public class Correct_Angle : MonoBehaviour
 
     void Update()
     {
+        if (isCorrect) return;
         float percent = CalculateMatchPercent();
 
-        //95%
-        isNearCorrect = percent >= clearThreshold;
-
-        //97%以上でスナップ処理
-        if (percent >= snapThreshold && !isSnapped)
+        //スナップ処理
+        if (percent >= snapThreshold)
         {
             SnapToTaraget();
         }
-        else if (!isSnapped)
+        else
         {
             Rotate();
         }
@@ -109,7 +108,7 @@ public class Correct_Angle : MonoBehaviour
         if (Mathf.Abs(Mathf.DeltaAngle(currentX, targetX)) < 0.1f &&
             Mathf.Abs(Mathf.DeltaAngle(currentY, targetY)) < 0.1f)
         {
-            isSnapped = true;
+            isCorrect = true;
         }
     }
 }
