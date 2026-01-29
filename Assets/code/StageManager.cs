@@ -27,6 +27,8 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("Difficulty = " + GameData.difficulty);
+
         easy.SetActive(false);
         normal.SetActive(false);
         hard.SetActive(false);
@@ -43,7 +45,7 @@ public class StageManager : MonoBehaviour
             case GameData.Difficulty.Normal:
                 normal.SetActive(true);
                 currentAngle = normal.GetComponentInChildren<Correct_Angle>();
-                currentAngle.SetInitialRotation(-60f, -60f);
+                currentAngle.SetInitialRotation(-120f, -60f);
                 MoveCamera(normalCamera);
                 break;
 

@@ -38,8 +38,6 @@ public class Correct_Angle : MonoBehaviour
     public float clearThreshold = 95f;
     void Start()
     {
-        currentX = 0f;
-        currentY = 0f;
     }
 
     void Update()
@@ -125,7 +123,7 @@ public class Correct_Angle : MonoBehaviour
 
     public void SetInitialRotation(float x,float y)
     {
-        Debug.Log($"Initial Rotation Set: {x}, {y}");
+        //Debug.Log($"Initial Rotation Set: {x}, {y}");
         currentX = x;
         currentY = y;
         transform.rotation = Quaternion.Euler(currentX, currentY, 0f);
