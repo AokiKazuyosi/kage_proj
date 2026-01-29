@@ -2,9 +2,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+
 public class Correct_Angle : MonoBehaviour
 {
     public float rotateSpeed = 10f;
+    public bool isNearCorrect = false; //95%
+    public bool isSnapped = false; //一致
     public bool isCorrect = false;
 
     public StageManager stageManager;
@@ -39,6 +42,7 @@ public class Correct_Angle : MonoBehaviour
 
     void Update()
     {
+        if (isCorrect) return;
         float percent = CalculateMatchPercent();
 
         //スナップ処理
@@ -79,37 +83,32 @@ public class Correct_Angle : MonoBehaviour
 
     void UpdateUI(float percent)
     {
-        if (matchSlider!=null)
+        if (matchSlider != null)
         {
-            matchSlider.value = percent;   
+            matchSlider.value = percent;
         }
 
-        if(fillImage != null)
+        if (fillImage != null)
         {
-            fillImage.color = (percent >= clearThreshold) ? clearColor : normalColor;
+            fillImage.color = isNearCorrect ? clearColor : normalColor;
         }
     }
 
     void SnapToTaraget()
     {
         currentX = Mathf.MoveTowardsAngle(
-        currentX, targetX, snapSpeed * Time.deltaTime);
+            currentX, targetX, snapSpeed * Time.deltaTime);
 
         currentY = Mathf.MoveTowardsAngle(
             currentY, targetY, snapSpeed * Time.deltaTime);
 
         transform.rotation = Quaternion.Euler(currentX, currentY, 0f);
 
+        //スナップ完了
         if (Mathf.Abs(Mathf.DeltaAngle(currentX, targetX)) < 0.1f &&
             Mathf.Abs(Mathf.DeltaAngle(currentY, targetY)) < 0.1f)
         {
             isCorrect = true;
         }
-    }
-
-    public bool IsCleared()
-    {
-        float percent = CalculateMatchPercent();
-        return percent >= clearThreshold;
     }
 }

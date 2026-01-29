@@ -333,7 +333,7 @@ MonoBehaviour:
   m_startBtn: {fileID: 1336672933}
   buttonImage: {fileID: 1336672934}
   buttonText: {fileID: 1665344091}
-  hoverSE: {fileID: 8300000, guid: 6662eead6a37ee9488e20c3a4fcd9a3b, type: 3}
+  hoverSE: {fileID: 8300000, guid: ffe03c5158c216d4c923fd0566f316f4, type: 3}
   clickSE: {fileID: 8300000, guid: bd972fc8b6754f2438cc230cd12961a0, type: 3}
 --- !u!114 &1336672933
 MonoBehaviour:
