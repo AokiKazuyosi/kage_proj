@@ -90,7 +90,15 @@ public class Correct_Angle : MonoBehaviour
 
         if (fillImage != null)
         {
-            fillImage.color = isNearCorrect ? clearColor : normalColor;
+            if(percent>=clearThreshold)
+            {
+                fillImage.color = clearColor;
+            }
+            else
+            {
+                fillImage.color = normalColor;
+            }
+            //fillImage.color = isNearCorrect ? clearColor : normalColor;
         }
     }
 
