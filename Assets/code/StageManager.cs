@@ -13,6 +13,13 @@ public class StageManager : MonoBehaviour
     [Header("Player")]
     public WASD playerController;
 
+    [Header("Camera")]
+    public Camera mainCamera;
+
+    public Transform easyCamara;
+    public Transform normalCamera;
+    public Transform hardCamera;
+
     public float clearDelay = 1.5f;
     bool cleared = false;
 
@@ -25,19 +32,19 @@ public class StageManager : MonoBehaviour
         normal.SetActive(false);
         hard.SetActive(false);
 
-        switch(GameSettings.difficulty)
+        switch(GameData.difficulty)
         {
-            case GameSettings.Difficulty.Easy:
+            case GameData.Difficulty.Easy:
                 easy.SetActive(true);
                 currentAngle = easy.GetComponentInChildren<Correct_Angle>();
                 break;
 
-            case GameSettings.Difficulty.Normal:
+            case GameData.Difficulty.Normal:
                 normal.SetActive(true);
                 currentAngle = normal.GetComponentInChildren<Correct_Angle>();
                 break;
 
-            case GameSettings.Difficulty.Hard:
+            case GameData.Difficulty.Hard:
                 hard.SetActive(true);
                 currentAngle = hard.GetComponentInChildren<Correct_Angle>();
                 break;
