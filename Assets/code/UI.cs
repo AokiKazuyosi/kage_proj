@@ -4,7 +4,9 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class UIHoverEffect : MonoBehaviour,
-    IPointerEnterHandler, IPointerExitHandler
+    IPointerEnterHandler,
+    IPointerExitHandler,
+    IPointerClickHandler
 {
     [Header("Frame (点滅させる枠)")]
     [SerializeField] Image frameImage;
@@ -12,6 +14,10 @@ public class UIHoverEffect : MonoBehaviour,
     [Header("拡大設定")]
     [SerializeField] float scaleUp = 1.1f;
     [SerializeField] float scaleSpeed = 10f;
+
+    [Header("効果音")]
+    [SerializeField] AudioSource hoverSE;
+    [SerializeField] AudioSource clickSE;   // ★追加
 
     Vector3 defaultScale;
     Coroutine blinkCoroutine;
@@ -21,14 +27,12 @@ public class UIHoverEffect : MonoBehaviour,
     {
         defaultScale = transform.localScale;
 
-        // 枠を最初は表示しない
         if (frameImage != null)
             frameImage.gameObject.SetActive(false);
     }
 
     void Update()
     {
-        // 拡大・縮小をなめらかに
         Vector3 targetScale = isHover
             ? defaultScale * scaleUp
             : defaultScale;
@@ -40,12 +44,13 @@ public class UIHoverEffect : MonoBehaviour,
         );
     }
 
-    // カーソルが乗った瞬間
     public void OnPointerEnter(PointerEventData eventData)
     {
         isHover = true;
 
-        // 枠表示＋点滅開始
+        if (hoverSE != null)
+            hoverSE.PlayOneShot(hoverSE.clip);
+
         if (frameImage != null)
         {
             frameImage.gameObject.SetActive(true);
@@ -53,24 +58,28 @@ public class UIHoverEffect : MonoBehaviour,
         }
     }
 
-    // カーソルが離れた瞬間
     public void OnPointerExit(PointerEventData eventData)
     {
         isHover = false;
 
-        // 点滅停止
         if (blinkCoroutine != null)
         {
             StopCoroutine(blinkCoroutine);
             blinkCoroutine = null;
         }
 
-        // 枠を元に戻す
         if (frameImage != null)
         {
             frameImage.gameObject.SetActive(false);
             SetFrameAlpha(1f);
         }
+    }
+
+    // ★クリック音
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (clickSE != null)
+            clickSE.PlayOneShot(clickSE.clip);
     }
 
     IEnumerator FrameBlink()
