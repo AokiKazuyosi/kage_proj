@@ -15,6 +15,8 @@ public class Correct_Angle : MonoBehaviour
     float currentX;
     float currentY;
 
+    bool initialized = false;
+
     [Header("Target Rotation (degrees)")]
     public float targetX; //Xの正解度
     public float targetY; //Yの正解度
@@ -43,6 +45,7 @@ public class Correct_Angle : MonoBehaviour
     void Update()
     {
         if (isCorrect) return;
+        if (!initialized) return;
         float percent = CalculateMatchPercent();
 
         //スナップ処理
@@ -122,9 +125,11 @@ public class Correct_Angle : MonoBehaviour
 
     public void SetInitialRotation(float x,float y)
     {
+        Debug.Log($"Initial Rotation Set: {x}, {y}");
         currentX = x;
         currentY = y;
         transform.rotation = Quaternion.Euler(currentX, currentY, 0f);
         isCorrect = false;
+        initialized = true;
     }
 }
