@@ -37,18 +37,29 @@ public class StageManager : MonoBehaviour
             case GameData.Difficulty.Easy:
                 easy.SetActive(true);
                 currentAngle = easy.GetComponentInChildren<Correct_Angle>();
+                MoveCamera(easyCamara);
                 break;
 
             case GameData.Difficulty.Normal:
                 normal.SetActive(true);
                 currentAngle = normal.GetComponentInChildren<Correct_Angle>();
+                MoveCamera(normalCamera);
                 break;
 
             case GameData.Difficulty.Hard:
                 hard.SetActive(true);
                 currentAngle = hard.GetComponentInChildren<Correct_Angle>();
+                MoveCamera(hardCamera);
                 break;
         }
+    }
+
+    void MoveCamera(Transform point)
+    {
+        if (mainCamera == null || point == null) return;
+
+        mainCamera.transform.position = point.position;
+        mainCamera.transform.rotation = point.rotation;
     }
 
     void Update()
