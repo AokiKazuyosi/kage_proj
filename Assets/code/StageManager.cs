@@ -52,10 +52,11 @@ public class StageManager : MonoBehaviour
             case GameData.Difficulty.Hard:
                 hard.SetActive(true);
                 currentAngle = hard.GetComponentInChildren<Correct_Angle>();
-                currentAngle.SetInitialRotation(-90f, -120f);
+                currentAngle.SetInitialRotation(-120f, -120f);
                 MoveCamera(hardCamera);
                 break;
         }
+        Debug.Log("CurrentAngle = " + (currentAngle ? currentAngle.name : "null"));
     }
 
     void MoveCamera(Transform point)
@@ -68,7 +69,7 @@ public class StageManager : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("CurrentAngle = " + currentAngle.gameObject.name);
+        //Debug.Log("CurrentAngle = " + currentAngle.gameObject.name);
 
         if (cleared) return;
 

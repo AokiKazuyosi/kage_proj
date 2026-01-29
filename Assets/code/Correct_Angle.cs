@@ -46,6 +46,8 @@ public class Correct_Angle : MonoBehaviour
         if (!initialized) return;
         float percent = CalculateMatchPercent();
 
+        isNearCorrect = percent >= clearThreshold;
+
         //スナップ処理
         if (percent >= snapThreshold)
         {
