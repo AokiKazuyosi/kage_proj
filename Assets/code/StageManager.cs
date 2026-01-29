@@ -27,7 +27,7 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Difficulty = " + GameData.difficulty);
+        //Debug.Log("Difficulty = " + GameData.difficulty);
 
         easy.SetActive(false);
         normal.SetActive(false);
@@ -68,6 +68,8 @@ public class StageManager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("CurrentAngle = " + currentAngle.gameObject.name);
+
         if (cleared) return;
 
         if (currentAngle != null && currentAngle.isCorrect) 
