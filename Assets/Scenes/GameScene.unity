@@ -220,13 +220,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b5eb09915796a847ae45d0e1256e9cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Correct_Angle
-  rotateSpeed: 10
+  rotateSpeed: 15
   isNearCorrect: 0
   isSnapped: 0
   isCorrect: 0
   stageManager: {fileID: 1993967724}
-  targetX: 30
-  targetY: 30
+  targetX: 0
+  targetY: 0
   maxAngleError: 90
   snapThreshold: 97
   snapSpeed: 7
@@ -558,8 +558,8 @@ MonoBehaviour:
   isSnapped: 0
   isCorrect: 0
   stageManager: {fileID: 1993967724}
-  targetX: 90
-  targetY: 90
+  targetX: 0
+  targetY: 0
   maxAngleError: 90
   snapThreshold: 97
   snapSpeed: 7
@@ -800,27 +800,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ebd7c8c6bb007848819daea94364040, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9330127
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ebd7c8c6bb007848819daea94364040, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.24999997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ebd7c8c6bb007848819daea94364040, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.24999997
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ebd7c8c6bb007848819daea94364040, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.06698728
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ebd7c8c6bb007848819daea94364040, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ebd7c8c6bb007848819daea94364040, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ebd7c8c6bb007848819daea94364040, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1487,8 +1487,8 @@ MonoBehaviour:
   isSnapped: 0
   isCorrect: 0
   stageManager: {fileID: 1993967724}
-  targetX: 60
-  targetY: 60
+  targetX: 0
+  targetY: 0
   maxAngleError: 90
   snapThreshold: 97
   snapSpeed: 7
