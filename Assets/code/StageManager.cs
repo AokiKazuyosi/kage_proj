@@ -20,23 +20,24 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("StageManager difficulty = " + GameData.difficulty);
         easy.SetActive(false);
         normal.SetActive(false);
         hard.SetActive(false);
 
         switch(GameSettings.difficulty)
         {
-            case 0:
+            case GameSettings.Difficulty.Easy:
                 easy.SetActive(true);
                 currentAngle = easy.GetComponentInChildren<Correct_Angle>();
                 break;
 
-            case 1:
+            case GameSettings.Difficulty.Normal:
                 normal.SetActive(true);
                 currentAngle = normal.GetComponentInChildren<Correct_Angle>();
                 break;
 
-            case 2:
+            case GameSettings.Difficulty.Hard:
                 hard.SetActive(true);
                 currentAngle = hard.GetComponentInChildren<Correct_Angle>();
                 break;

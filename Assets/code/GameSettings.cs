@@ -2,5 +2,11 @@ using UnityEngine;
 
 public static class GameSettings
 {
-    public static int difficulty = 0;
+    public enum Difficulty
+    {
+        Easy,
+        Normal,
+        Hard
+    }
+    public static Difficulty difficulty = Difficulty.Easy;
 }

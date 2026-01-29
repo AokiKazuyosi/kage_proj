@@ -224,7 +224,7 @@ MonoBehaviour:
   isNearCorrect: 0
   isSnapped: 0
   isCorrect: 0
-  stageManager: {fileID: 0}
+  stageManager: {fileID: 1993967724}
   targetX: 30
   targetY: 30
   maxAngleError: 90
@@ -557,7 +557,7 @@ MonoBehaviour:
   isNearCorrect: 0
   isSnapped: 0
   isCorrect: 0
-  stageManager: {fileID: 0}
+  stageManager: {fileID: 1993967724}
   targetX: 90
   targetY: 90
   maxAngleError: 90
@@ -1371,9 +1371,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 848714254}
   - {fileID: 347583922}
   - {fileID: 2133572594}
+  - {fileID: 848714254}
   m_Father: {fileID: 1862702824}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1993967724
@@ -1420,7 +1420,7 @@ MonoBehaviour:
   isNearCorrect: 0
   isSnapped: 0
   isCorrect: 0
-  stageManager: {fileID: 0}
+  stageManager: {fileID: 1993967724}
   targetX: 60
   targetY: 60
   maxAngleError: 90
