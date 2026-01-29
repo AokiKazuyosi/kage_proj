@@ -6,7 +6,7 @@ public class DifficultyUI : MonoBehaviour
     public void Easy()
     {
         GameData.difficulty = GameData.Difficulty.Easy;
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void Normal()
