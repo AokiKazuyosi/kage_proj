@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
-    public Correct_Angle angleChecker;
+    //public Correct_Angle angleChecker;
 
     [Header("Stages")]
     public GameObject easy;
