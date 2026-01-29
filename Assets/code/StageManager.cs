@@ -52,7 +52,7 @@ public class StageManager : MonoBehaviour
             case GameData.Difficulty.Hard:
                 hard.SetActive(true);
                 currentAngle = hard.GetComponentInChildren<Correct_Angle>();
-                currentAngle.SetInitialRotation(-90f, -90f);
+                currentAngle.SetInitialRotation(-90f, -120f);
                 MoveCamera(hardCamera);
                 break;
         }
