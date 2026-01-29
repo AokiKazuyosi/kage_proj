@@ -119,4 +119,12 @@ public class Correct_Angle : MonoBehaviour
             isCorrect = true;
         }
     }
+
+    public void SetInitialRotation(float x,float y)
+    {
+        currentX = x;
+        currentY = y;
+        transform.rotation = Quaternion.Euler(currentX, currentY, 0f);
+        isCorrect = false;
+    }
 }
