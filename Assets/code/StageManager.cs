@@ -56,7 +56,7 @@ public class StageManager : MonoBehaviour
                 MoveCamera(hardCamera);
                 break;
         }
-        Debug.Log("CurrentAngle = " + (currentAngle ? currentAngle.name : "null"));
+        //Debug.Log("CurrentAngle = " + (currentAngle ? currentAngle.name : "null"));
     }
 
     void MoveCamera(Transform point)
