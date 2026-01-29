@@ -27,7 +27,6 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("StageManager difficulty = " + GameData.difficulty);
         easy.SetActive(false);
         normal.SetActive(false);
         hard.SetActive(false);
