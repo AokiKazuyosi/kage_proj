@@ -38,14 +38,14 @@ public class StageManager : MonoBehaviour
             case GameData.Difficulty.Easy:
                 easy.SetActive(true);
                 currentAngle = easy.GetComponentInChildren<Correct_Angle>();
-                currentAngle.SetInitialRotation(-30f, -30f);
+                currentAngle.SetInitialRotation(-120f, -60f);
                 MoveCamera(easyCamara);
                 break;
 
             case GameData.Difficulty.Normal:
                 normal.SetActive(true);
                 currentAngle = normal.GetComponentInChildren<Correct_Angle>();
-                currentAngle.SetInitialRotation(-120f, -60f);
+                currentAngle.SetInitialRotation(-30f, -30f);
                 MoveCamera(normalCamera);
                 break;
 
