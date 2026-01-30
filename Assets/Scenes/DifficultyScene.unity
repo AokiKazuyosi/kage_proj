@@ -417,7 +417,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 432570264}
         m_TargetAssemblyTypeName: DifficultyUI, Assembly-CSharp
-        m_MethodName: Easy
+        m_MethodName: Normal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -517,8 +517,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: fadd58882f6b41c4c9044c76e723df1d, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -614,8 +614,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: f64604e7073b69d4ebd407137ccd5439, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -715,8 +715,8 @@ MonoBehaviour:
   frameImage: {fileID: 0}
   scaleUp: 1.1
   scaleSpeed: 10
-  hoverSE: {fileID: 0}
-  clickSE: {fileID: 0}
+  hoverSE: {fileID: 177686042}
+  clickSE: {fileID: 177686041}
 --- !u!114 &177686044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2056,7 +2056,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 432570264}
         m_TargetAssemblyTypeName: DifficultyUI, Assembly-CSharp
-        m_MethodName: Normal
+        m_MethodName: Easy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
