@@ -38,6 +38,7 @@ public class Correct_Angle : MonoBehaviour
     public float clearThreshold = 95f;
     void Start()
     {
+        Debug.Log($"Init: {currentX},{currentY}  Target: {targetX},{targetY}");
     }
 
     void Update()
