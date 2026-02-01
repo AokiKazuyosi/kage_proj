@@ -128,6 +128,6 @@ public class StageManager : MonoBehaviour
 
     void ReturnToTitle()
     {
-        SceneManager.LoadScene("TitleScene");
+        SceneManager.LoadScene("clearScene");
     }
 }
