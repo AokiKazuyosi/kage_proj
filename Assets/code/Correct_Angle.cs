@@ -11,6 +11,7 @@ public class Correct_Angle : MonoBehaviour
     public bool isCorrect = false;
 
     public StageManager stageManager;
+    public WASD wasd; //’Ç‰Á
 
     float currentX;
     float currentY;
@@ -38,7 +39,12 @@ public class Correct_Angle : MonoBehaviour
     public float clearThreshold = 95f;
     void Start()
     {
-        Debug.Log($"Init: {currentX},{currentY}  Target: {targetX},{targetY}");
+        //’Ç‰Á
+        Vector3 euler = transform.eulerAngles;
+        currentX = euler.x;
+        currentY = euler.y;
+
+        initialized = true;
     }
 
     void Update()
@@ -63,12 +69,17 @@ public class Correct_Angle : MonoBehaviour
 
     void Rotate()
     {
-        if (Keyboard.current == null) return;
-         
-        if (Keyboard.current.wKey.isPressed) currentX += rotateSpeed * Time.deltaTime;
-        if (Keyboard.current.sKey.isPressed) currentX -= rotateSpeed * Time.deltaTime;
-        if (Keyboard.current.aKey.isPressed) currentY += rotateSpeed * Time.deltaTime;
-        if (Keyboard.current.dKey.isPressed) currentY -= rotateSpeed * Time.deltaTime;
+        //if (Keyboard.current == null) return;
+
+        //if (Keyboard.current.wKey.isPressed) currentX += rotateSpeed * Time.deltaTime;
+        //if (Keyboard.current.sKey.isPressed) currentX -= rotateSpeed * Time.deltaTime;
+        //if (Keyboard.current.aKey.isPressed) currentY += rotateSpeed * Time.deltaTime;
+        //if (Keyboard.current.dKey.isPressed) currentY -= rotateSpeed * Time.deltaTime;
+
+        if (wasd == null) return;
+
+        currentX += wasd.inputX;
+        currentY += wasd.inputY;
 
         transform.rotation = Quaternion.Euler(currentX, currentY, 0f);
     }
@@ -102,7 +113,6 @@ public class Correct_Angle : MonoBehaviour
             {
                 fillImage.color = normalColor;
             }
-            //fillImage.color = isNearCorrect ? clearColor : normalColor;
         }
     }
 
@@ -126,10 +136,11 @@ public class Correct_Angle : MonoBehaviour
 
     public void SetInitialRotation(float x,float y)
     {
-        //Debug.Log($"Initial Rotation Set: {x}, {y}");
         currentX = x;
         currentY = y;
+
         transform.rotation = Quaternion.Euler(currentX, currentY, 0f);
+
         isCorrect = false;
         initialized = true;
     }

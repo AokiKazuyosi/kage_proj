@@ -27,36 +27,81 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
-        //Debug.Log("Difficulty = " + GameData.difficulty);
+        //easy.SetActive(false);
+        //normal.SetActive(false);
+        //hard.SetActive(false);
+
+        //switch(GameData.difficulty)
+        //{
+        //    case GameData.Difficulty.Easy:
+        //        easy.SetActive(true);
+        //        currentAngle = easy.GetComponentInChildren<Correct_Angle>();
+        //        currentAngle.SetInitialRotation(-30f, -30f);
+        //        MoveCamera(easyCamara);
+        //        break;
+
+        //    case GameData.Difficulty.Normal:
+        //        normal.SetActive(true);
+        //        currentAngle = normal.GetComponentInChildren<Correct_Angle>();
+        //        currentAngle.SetInitialRotation(-120f, -60f);
+        //        MoveCamera(normalCamera);
+        //        break;
+
+        //    case GameData.Difficulty.Hard:
+        //        hard.SetActive(true);
+        //        currentAngle = hard.GetComponentInChildren<Correct_Angle>();
+        //        currentAngle.SetInitialRotation(-120f, -120f);
+        //        MoveCamera(hardCamera);
+        //        break;
+        //}
+
+        if (easy == null || normal == null || hard == null)
+        {
+            Debug.LogError("Stage objects are not assigned");
+            return;
+        }
 
         easy.SetActive(false);
         normal.SetActive(false);
         hard.SetActive(false);
 
-        switch(GameData.difficulty)
+        switch (GameData.difficulty)
         {
             case GameData.Difficulty.Easy:
-                easy.SetActive(true);
-                currentAngle = easy.GetComponentInChildren<Correct_Angle>();
-                currentAngle.SetInitialRotation(-30f, -30f);
-                MoveCamera(easyCamara);
+                ActivateStage(easy, easyCamara, -30f, -30f);
                 break;
 
             case GameData.Difficulty.Normal:
-                normal.SetActive(true);
-                currentAngle = normal.GetComponentInChildren<Correct_Angle>();
-                currentAngle.SetInitialRotation(-120f, -60f);
-                MoveCamera(normalCamera);
+                ActivateStage(normal, normalCamera, -120f, -60f);
                 break;
 
             case GameData.Difficulty.Hard:
-                hard.SetActive(true);
-                currentAngle = hard.GetComponentInChildren<Correct_Angle>();
-                currentAngle.SetInitialRotation(-120f, -120f);
-                MoveCamera(hardCamera);
+                ActivateStage(hard, hardCamera, -120f, -120f);
                 break;
         }
-        //Debug.Log("CurrentAngle = " + (currentAngle ? currentAngle.name : "null"));
+    }
+
+    void ActivateStage(GameObject stage, Transform cameraPoint, float initX, float initY)
+    {
+        // ステージを有効化
+        stage.SetActive(true);
+
+        // 非アクティブも含めて Correct_Angle を取得
+        Correct_Angle angle =
+            stage.GetComponentInChildren<Correct_Angle>(true);
+
+        if (angle == null)
+        {
+            Debug.LogError(stage.name + " に Correct_Angle が見つかりません");
+            return;
+        }
+
+        // 初期回転を設定（← initialized = true になる）
+        angle.SetInitialRotation(initX, initY);
+        currentAngle = angle;
+
+        // カメラ移動
+        MoveCamera(cameraPoint);
     }
 
     void MoveCamera(Transform point)
@@ -69,8 +114,6 @@ public class StageManager : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log("CurrentAngle = " + currentAngle.gameObject.name);
-
         if (cleared) return;
 
         if (currentAngle != null && currentAngle.isCorrect) 
