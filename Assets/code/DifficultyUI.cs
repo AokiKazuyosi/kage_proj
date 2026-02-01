@@ -5,13 +5,13 @@ public class DifficultyUI : MonoBehaviour
 {
     public void Easy()
     {
-        GameData.difficulty = GameData.Difficulty.Easy;
+        GameData.difficulty = GameData.Difficulty.Normal;
         SceneManager.LoadScene("GameScene");
     }
 
     public void Normal()
     {
-        GameData.difficulty = GameData.Difficulty.Normal;
+        GameData.difficulty = GameData.Difficulty.Easy;
         SceneManager.LoadScene("GameScene");
     }
 
