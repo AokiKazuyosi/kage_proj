@@ -26,35 +26,7 @@ public class StageManager : MonoBehaviour
     Correct_Angle currentAngle;
 
     void Start()
-    {
-        //easy.SetActive(false);
-        //normal.SetActive(false);
-        //hard.SetActive(false);
-
-        //switch(GameData.difficulty)
-        //{
-        //    case GameData.Difficulty.Easy:
-        //        easy.SetActive(true);
-        //        currentAngle = easy.GetComponentInChildren<Correct_Angle>();
-        //        currentAngle.SetInitialRotation(-30f, -30f);
-        //        MoveCamera(easyCamara);
-        //        break;
-
-        //    case GameData.Difficulty.Normal:
-        //        normal.SetActive(true);
-        //        currentAngle = normal.GetComponentInChildren<Correct_Angle>();
-        //        currentAngle.SetInitialRotation(-120f, -60f);
-        //        MoveCamera(normalCamera);
-        //        break;
-
-        //    case GameData.Difficulty.Hard:
-        //        hard.SetActive(true);
-        //        currentAngle = hard.GetComponentInChildren<Correct_Angle>();
-        //        currentAngle.SetInitialRotation(-120f, -120f);
-        //        MoveCamera(hardCamera);
-        //        break;
-        //}
-
+    {   
         if (easy == null || normal == null || hard == null)
         {
             Debug.LogError("Stage objects are not assigned");
